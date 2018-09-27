@@ -1,0 +1,42 @@
+---
+- name: install docker
+
+  hosts: all
+  become: yes
+  become_method: sudo
+
+  tasks:
+
+  - name: add docker repository
+    yum_repository:
+      name: docker repo
+      description: docker repo
+      baseurl: https://download.docker.com/linux/centos/docker-ce.repo
+      gpgcheck: no
+
+  - name: install ntp
+    yum:
+      name: ntp
+      state: latest
+
+  - name: install ntpdate
+    yum:
+      name: ntpdate
+      state: latest
+
+  - name: install ntp-doc
+    yum:
+      name: ntp-doc
+      state: latest
+
+  - name: enable ntpd
+    service:
+      name: ntpd
+      enabled: yes
+      state: restarted
+
+  - name: install docker-ce
+    yum:
+      name: docker-ce
+      state: latest
+      
