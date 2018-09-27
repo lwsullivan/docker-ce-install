@@ -20,3 +20,10 @@
       name: docker
       state: started
       enabled: yes
+      
+   - name: ntp service enabled
+     service:
+       name: ntpd
+       state: started
+       enabled: yes
+       
