@@ -9,7 +9,7 @@
 
   - name: add docker repository
     yum_repository:
-      name: docker repo
+      name: docker-repo
       description: docker-ce-repo
       baseurl: https://download.docker.com/linux/centos/docker-ce.repo
       gpgcheck: no
