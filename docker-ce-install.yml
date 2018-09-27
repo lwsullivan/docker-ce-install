@@ -15,3 +15,8 @@
       name: docker-ce
       state: latest
       
+  - name: enable and start docker service
+    service:
+      name: docker
+      state: started
+      enabled: yes
